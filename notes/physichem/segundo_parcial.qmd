@@ -1,0 +1,239 @@
+---
+title: Chemical Kinetics
+
+---
+$$
+      \gdef\diff#1#2{\frac{d#1}{d#2}} 
+      \gdef\pdiff#1#2{\frac{\partial #1}{\partial #2}} 
+      \gdef\con#1{[\ce{#1}]}
+$$
+
+# The life of a chemical reaction
+
+Matter usually is found in equilibrium, but before that, the system was in a state with some *potential* to produce change. This change may be fast or slow, in one step or many, with constant or variable $P, T, V ...$. 
+
+* Factors that affect the velocity of reaction.
+    - Concentration
+    - Physical State
+    - Solvent properties
+        - Polarity
+        - Viscosity
+        - Electrolices 
+
+
+> The rate of chemical reactions is a very complicated subject. This statement is to be interpreted as a challenge to enthusiastic and vigorous chemists; it is not to be interpreted as a sad sigh of defeat. —*Harold S. Johnston*
+
+# Reaction Rate
+Suppose that a general reaction occurs
+$$
+\ce{x_i X_i -> y_i Y_i}
+$$ {#eq-general-reaction}
+
+where $\ce{X_i,Y_i}$ are the reactants and the products respectively and $\ce{x_i,y_i}$ are the stoichiometric coefficients ($\nu_i$). Then the reaction rate is defined (for @eq-general-reaction) as:
+
+::: {.callout-note icon=false}
+## Definition of **mean** reaction rate (for @eq-general-reaction)
+
+$$
+r = -\frac{1}{\ce x_i}\frac{\Delta \ce X_i}{\Delta t} \implies \frac{1}{\ce y_i}\frac{ \Delta \ce Y_i}{\Delta t}
+$$
+
+:::
+
+
+
+A kinetic curve is the plot of the **concentration ($\ce{ X_i \text{or} Y_i}$)** vs **time**. The instantaneous rate is defined as the 
+$$
+r = -\frac{1}{\ce{x_i}}\diff{[\ce{X_i}]}{t} = \frac{1}{\ce y_i} \diff{[\ce Y_i]}{t}
+$$
+
+
+
+## The extend of reaction [Optional]
+To avoid the existence of several rates connected with the reaction the **extent of reaction** $\xi$ is used
+
+::: {.callout-note icon=false}
+
+### Definition of extend of reaction
+
+$$
+dn_{\mathrm J} = \nu_{\mathrm J} d\xi
+$$
+
+where $dn_{\mathrm J}$ is the change in amount of $[\mathrm J]$ and $\nu_\mathrm J$ is the respective stoichiometric number of the species
+:::
+
+The unique rate reaction $v$ is defined as
+
+::: {.callout-note icon=false}
+## Unique rate of reaction
+$$
+v = \frac{1}{V}\frac{d \xi}{dt} =\frac{1}{\nu_\mathrm J}\frac{1}{V}\frac{d n_\mathrm J}{dt}
+$$
+where V is the volume of the system.
+:::
+
+For a **homogeneous** reaction in a constant-volume system the $V$ can be taken inside the differential and therefore  $n_{\mathrm J} / V = [\mathrm J]$. then the rate would be
+
+:::{.callout-note icon=false}
+## Unique rate for constant $V$ and a homogeneous system
+$$
+r = \frac{1}{\nu_{\mathrm J}} \frac{d [\mathrm J]}{dt}
+$$
+:::
+Similarly for a heterogeneous reaction the constant surface area is used, and therefore the rate would be
+
+:::{.callout-note icon=false}
+## Unique rate for constant $A$ and a heterogeneous system
+$$
+r = \frac{1}{\nu_{\mathrm J}} \diff{\sigma}{t}, \; \; \; \sigma_{\mathrm J} = n_{\mathrm J} /A
+$$
+:::
+
+
+## Reaction law 
+As the definition of $r$ suggest, the rate may depend of the reactants. If we suppose that all reactants react to form a product and the product **does not change** in the course of the reaction, the rate would be in function of the reactant concentrations.
+$$
+r = f([\ce X_0], [\ce X_1], \cdots)
+$$
+The dependance of the concentration can be changed with other state function like the pressure ($p_{\mathrm{J}} = RT[J]$).
+$$
+r = f(p_0, p_1, \cdots)
+$$
+Often the concentration of the **reactants** is proportional to the rate. (Although it must be found experimentally). 
+$$
+r  \propto \prod [\ce X_i]^{\alpha_i}
+$$
+If that is the case, the reaction order is defined as the sum of all $\alpha_i$, and the above equation is know as the rate law with $k_r$ as the rate constant. The $k_r$ constant it depends of temperature and is independent of the concentration.
+
+### Reaction order for the simplest case
+The simplest case is when there is just one $[\ce X]$ with $\alpha_i$ being a integer.
+
+#### Zero-Order reaction
+This happens if the rate is 
+$$
+r = k_r  [\ce X]^{\alpha} \;\; \text{with} \;\;  \alpha = 0
+$$
+Therefore $r = k_r$ and
+
+\begin{aligned}
+ 
+        -\diff{[\ce X]}{t} = k_r &\rightarrow \\
+            d [\ce X] &= -k_r d t \\
+            \int_{[\ce X]_0}^{[\ce X]} d [\ce X] &= -\int_0^t k_r d t \\
+            \Delta [\ce X] &= -k_r t\\
+
+\end{aligned}
+
+Then the change in concentration it is independent of the reactant.
+
+##### Half-life of zero-order reactions
+The half-life of this reaction is $t = \frac{[\ce X]_0}{2k_r}$, in other words it is always the half of the initial concentration over the rate constant.
+
+
+### Other reaction orders
+| Order | Differential rate equation | Concentration Equation | Half-life |
+|:----:|:---------------------------:|:-----------------------:|:---------:|
+| 0  | $$-\diff{\con X}{t}= k_r$$      |  $$\Delta \con X = -k_rt$$   |   $$\frac{\con X_0}{2k_r}$$   |
+| 1  | $$-\diff{\con X}{t}= k_r\con X$$|  $$\con X = \con X_0 e^{-k_rt}$$  |  $$\frac{\ln 2}{k_r}$$   |
+| 2  |$$-\diff{\con X}{t}= k_r\con X^2$$| $$\frac{1}{\con X} - \frac{1}{\con X_0} = kt$$   |   $$\frac{1}{\con X_0 k_r}$$   |
+
+: Order reactions for the $\ce{X -> Y}$ model
+
+### Other models
+The simplest model for a reaction with two reactants is 
+$$
+\ce{X_0 + X_1 -> Y }
+$$
+the rate law of this reaction is
+$$
+r = k_r [X_0]^{\alpha_0}[X_1]^{\alpha_1}
+$$
+if $\sum \alpha_i = 2$ then it is posible to deduce the concentration equation,
+$$
+\frac{1}{\con{X_1}_0 - \con{X_0}_0 } \ln{\frac{\con{X_1} \con{X_0}_0}{\con{X_0}\con{X_1}_0}} = k_rt
+$$
+
+:::{.callout-tip}
+To deduce the concentration equation just note that
+$$
+\diff{z}{t} = k_r(\con{X_0}_0 -z)(\con{X_1}_0 -z)
+$$
+where z is the amount of $\con X_0$ and $\con X_1$ consumed at time t. 
+:::
+
+# Determination of the reaction order
+
+## Integration Method
+Deduce the corresponding equation and adjust the data series by plotting concentration vs time. Raymond Chang affirms that this method is "not precise enough" to do more than distinguish the reaction order. This method is valid with various reactants.
+
+## Differential method
+If a reaction is of a n*th*-order reaction then is proportional to the n*th* power of the concentration of the reactant. This method is only valid with one reactant.
+
+:::{.callout-note icon="false"}
+
+## Transformation for differential method
+
+$$
+\begin{aligned}
+    \begin{split}
+        r = k_r \con{X}^n  &\rightarrow \\
+        \log r &= n\log \con X + \log k \\
+    \end{split}
+\end{aligned}
+$$
+:::
+
+it is better to take the initial velocities because the result is more accurate and easy to obtain.
+
+
+## Half-life method
+Measure the half-life dependance with its initial concentration. The most easy case is the first order reaction because it is independent of the reactants.
+
+## Order by initial rates or isolation method
+
+Imagine a reaction such as @eq-general-reaction. Then the velocity law is
+$$
+V = \prod [X_i]^{\alpha_i}
+$$
+
+note that if we have two points in witch the concentration of one species varies but the other remains constan (in this case sup. that B is constan) we can determine the order of reaction of that reactant   (let's say $\alpha_1$). Raymond Chang says initial rates avoids posible complications (side unwanted products, the concentrations of the reactant are well know).
+
+$$
+\frac{V_1}{V_2} = \left( \frac{\con{X_1}_{c=1}}{\con{X_1}_{c=2}} \right)^{\alpha_1} 
+$$
+
+# Molecularity of Reaction
+The proposed mechanism for a particularly reaction must account for the overall stoichiometry, the rate law and other known facts.
+
+Example 1
+
+Thermal decomposition of hydrogen peroxide|
+|:-----:|
+|$$\ce{2H2O2(aq) ->[\ce{I^{-}}] 2H2O(l) + O2(g)}$$|
+| **Rate**|
+| $$r = k \con{H2O2} \con{I^{-}}$$|
+| **Steps**|
+|$$ \begin{aligned}\begin{split} \ce{H2O2 + I^{-} &->[k1] H2O + IO^{-} }\\ \ce{H2O2 + IO^{-} &->[k2] H2O + O2 + I^-}\\ \end{split}\end{aligned} $$|
+
+Each of the steps described are called *elementary steps* and it is what actually happens at a molecular level. The most slow step is the first step because is what appears in the rate law. This step is called the *rate-determining* step.
+
+The ion $\ce{IO^-}$ is an intermediate species, because does not appears in the final equation and is formed at the begging and consumed at last. The ion $\ce{I^-}$  is a catalyst because is regenerated at the end of the reaction.
+
+To really understand a reaction you
+
+## Unimolecular Reactions
+They only involve one reactant molecule in the elementary step. For example for the
+
+# Complex Reactions
+## Reversible Reactions
+Most reactions are reversible, then we must account for the reverse rate. Considere the following reaction
+$$
+\ce{X <-->[k_r][k_{r^{-1}}] Y}
+$$
+then the net rate of change is
+$$
+\diff{[\ce A]}{t} = -k_r[A] +k_{r^{-1}}[B]
+$$
+
+

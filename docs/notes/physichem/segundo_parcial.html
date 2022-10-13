@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>chiralcarbon - Chemical Kinetics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/mhchem.min.js" integrity="sha384-RTN08a0AXIioPBcVosEqPUfKK+rPp+h1x/izR7xMkdMyuwkcZCWdxO+RSwIFtJXN" crossorigin="anonymous"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">chiralcarbon</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-life-of-a-chemical-reaction" id="toc-the-life-of-a-chemical-reaction" class="nav-link active" data-scroll-target="#the-life-of-a-chemical-reaction">The life of a chemical reaction</a></li>
+  <li><a href="#reaction-rate" id="toc-reaction-rate" class="nav-link" data-scroll-target="#reaction-rate">Reaction Rate</a>
+  <ul class="collapse">
+  <li><a href="#the-extend-of-reaction-optional" id="toc-the-extend-of-reaction-optional" class="nav-link" data-scroll-target="#the-extend-of-reaction-optional">The extend of reaction [Optional]</a></li>
+  <li><a href="#reaction-law" id="toc-reaction-law" class="nav-link" data-scroll-target="#reaction-law">Reaction law</a>
+  <ul class="collapse">
+  <li><a href="#reaction-order-for-the-simplest-case" id="toc-reaction-order-for-the-simplest-case" class="nav-link" data-scroll-target="#reaction-order-for-the-simplest-case">Reaction order for the simplest case</a></li>
+  <li><a href="#other-reaction-orders" id="toc-other-reaction-orders" class="nav-link" data-scroll-target="#other-reaction-orders">Other reaction orders</a></li>
+  <li><a href="#other-models" id="toc-other-models" class="nav-link" data-scroll-target="#other-models">Other models</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#determination-of-the-reaction-order" id="toc-determination-of-the-reaction-order" class="nav-link" data-scroll-target="#determination-of-the-reaction-order">Determination of the reaction order</a>
+  <ul class="collapse">
+  <li><a href="#integration-method" id="toc-integration-method" class="nav-link" data-scroll-target="#integration-method">Integration Method</a></li>
+  <li><a href="#differential-method" id="toc-differential-method" class="nav-link" data-scroll-target="#differential-method">Differential method</a></li>
+  <li><a href="#half-life-method" id="toc-half-life-method" class="nav-link" data-scroll-target="#half-life-method">Half-life method</a></li>
+  <li><a href="#order-by-initial-rates-or-isolation-method" id="toc-order-by-initial-rates-or-isolation-method" class="nav-link" data-scroll-target="#order-by-initial-rates-or-isolation-method">Order by initial rates or isolation method</a></li>
+  </ul></li>
+  <li><a href="#molecularity-of-reaction" id="toc-molecularity-of-reaction" class="nav-link" data-scroll-target="#molecularity-of-reaction">Molecularity of Reaction</a>
+  <ul class="collapse">
+  <li><a href="#unimolecular-reactions" id="toc-unimolecular-reactions" class="nav-link" data-scroll-target="#unimolecular-reactions">Unimolecular Reactions</a></li>
+  </ul></li>
+  <li><a href="#complex-reactions" id="toc-complex-reactions" class="nav-link" data-scroll-target="#complex-reactions">Complex Reactions</a>
+  <ul class="collapse">
+  <li><a href="#reversible-reactions" id="toc-reversible-reactions" class="nav-link" data-scroll-target="#reversible-reactions">Reversible Reactions</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Chemical Kinetics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p><span class="math display">
+      \gdef\diff#1#2{\frac{d#1}{d#2}}
+      \gdef\pdiff#1#2{\frac{\partial #1}{\partial #2}}
+      \gdef\con#1{[\ce{#1}]}
+</span></p>
+<section id="the-life-of-a-chemical-reaction" class="level1">
+<h1>The life of a chemical reaction</h1>
+<p>Matter usually is found in equilibrium, but before that, the system was in a state with some <em>potential</em> to produce change. This change may be fast or slow, in one step or many, with constant or variable <span class="math inline">P, T, V ...</span>.</p>
+<ul>
+<li>Factors that affect the velocity of reaction.
+<ul>
+<li>Concentration</li>
+<li>Physical State</li>
+<li>Solvent properties
+<ul>
+<li>Polarity</li>
+<li>Viscosity</li>
+<li>Electrolices</li>
+</ul></li>
+</ul></li>
+</ul>
+<blockquote class="blockquote">
+<p>The rate of chemical reactions is a very complicated subject. This statement is to be interpreted as a challenge to enthusiastic and vigorous chemists; it is not to be interpreted as a sad sigh of defeat. —<em>Harold S. Johnston</em></p>
+</blockquote>
+</section>
+<section id="reaction-rate" class="level1">
+<h1>Reaction Rate</h1>
+<p>Suppose that a general reaction occurs <span id="eq-general-reaction"><span class="math display">
+\ce{x_i X_i -&gt; y_i Y_i}
+\tag{1}</span></span></p>
+<p>where <span class="math inline">\ce{X_i,Y_i}</span> are the reactants and the products respectively and <span class="math inline">\ce{x_i,y_i}</span> are the stoichiometric coefficients (<span class="math inline">\nu_i</span>). Then the reaction rate is defined (for <a href="#eq-general-reaction">Equation&nbsp;1</a>) as:</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Definition of <strong>mean</strong> reaction rate (for <a href="#eq-general-reaction">Equation&nbsp;1</a>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+r = -\frac{1}{\ce x_i}\frac{\Delta \ce X_i}{\Delta t} \implies \frac{1}{\ce y_i}\frac{ \Delta \ce Y_i}{\Delta t}
+</span></p>
+</div>
+</div>
+<p>A kinetic curve is the plot of the <strong>concentration (<span class="math inline">\ce{ X_i \text{or} Y_i}</span>)</strong> vs <strong>time</strong>. The instantaneous rate is defined as the <span class="math display">
+r = -\frac{1}{\ce{x_i}}\diff{[\ce{X_i}]}{t} = \frac{1}{\ce y_i} \diff{[\ce Y_i]}{t}
+</span></p>
+<section id="the-extend-of-reaction-optional" class="level2">
+<h2 class="anchored" data-anchor-id="the-extend-of-reaction-optional">The extend of reaction [Optional]</h2>
+<p>To avoid the existence of several rates connected with the reaction the <strong>extent of reaction</strong> <span class="math inline">\xi</span> is used</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Definition of extend of reaction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+dn_{\mathrm J} = \nu_{\mathrm J} d\xi
+</span></p>
+<p>where <span class="math inline">dn_{\mathrm J}</span> is the change in amount of <span class="math inline">[\mathrm J]</span> and <span class="math inline">\nu_\mathrm J</span> is the respective stoichiometric number of the species</p>
+</div>
+</div>
+<p>The unique rate reaction <span class="math inline">v</span> is defined as</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Unique rate of reaction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+v = \frac{1}{V}\frac{d \xi}{dt} =\frac{1}{\nu_\mathrm J}\frac{1}{V}\frac{d n_\mathrm J}{dt}
+</span> where V is the volume of the system.</p>
+</div>
+</div>
+<p>For a <strong>homogeneous</strong> reaction in a constant-volume system the <span class="math inline">V</span> can be taken inside the differential and therefore <span class="math inline">n_{\mathrm J} / V = [\mathrm J]</span>. then the rate would be</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Unique rate for constant <span class="math inline">V</span> and a homogeneous system
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+r = \frac{1}{\nu_{\mathrm J}} \frac{d [\mathrm J]}{dt}
+</span></p>
+</div>
+</div>
+<p>Similarly for a heterogeneous reaction the constant surface area is used, and therefore the rate would be</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Unique rate for constant <span class="math inline">A</span> and a heterogeneous system
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+r = \frac{1}{\nu_{\mathrm J}} \diff{\sigma}{t}, \; \; \; \sigma_{\mathrm J} = n_{\mathrm J} /A
+</span></p>
+</div>
+</div>
+</section>
+<section id="reaction-law" class="level2">
+<h2 class="anchored" data-anchor-id="reaction-law">Reaction law</h2>
+<p>As the definition of <span class="math inline">r</span> suggest, the rate may depend of the reactants. If we suppose that all reactants react to form a product and the product <strong>does not change</strong> in the course of the reaction, the rate would be in function of the reactant concentrations. <span class="math display">
+r = f([\ce X_0], [\ce X_1], \cdots)
+</span> The dependance of the concentration can be changed with other state function like the pressure (<span class="math inline">p_{\mathrm{J}} = RT[J]</span>). <span class="math display">
+r = f(p_0, p_1, \cdots)
+</span> Often the concentration of the <strong>reactants</strong> is proportional to the rate. (Although it must be found experimentally). <span class="math display">
+r  \propto \prod [\ce X_i]^{\alpha_i}
+</span> If that is the case, the reaction order is defined as the sum of all <span class="math inline">\alpha_i</span>, and the above equation is know as the rate law with <span class="math inline">k_r</span> as the rate constant. The <span class="math inline">k_r</span> constant it depends of temperature and is independent of the concentration.</p>
+<section id="reaction-order-for-the-simplest-case" class="level3">
+<h3 class="anchored" data-anchor-id="reaction-order-for-the-simplest-case">Reaction order for the simplest case</h3>
+<p>The simplest case is when there is just one <span class="math inline">[\ce X]</span> with <span class="math inline">\alpha_i</span> being a integer.</p>
+<section id="zero-order-reaction" class="level4">
+<h4 class="anchored" data-anchor-id="zero-order-reaction">Zero-Order reaction</h4>
+<p>This happens if the rate is <span class="math display">
+r = k_r  [\ce X]^{\alpha} \;\; \text{with} \;\;  \alpha = 0
+</span> Therefore <span class="math inline">r = k_r</span> and</p>
+<span class="math display">\begin{aligned}
+        -\diff{[\ce X]}{t} = k_r &amp;\rightarrow \\
+            d [\ce X] &amp;= -k_r d t \\
+            \int_{[\ce X]_0}^{[\ce X]} d [\ce X] &amp;= -\int_0^t k_r d t \\
+            \Delta [\ce X] &amp;= -k_r t\\
+
+\end{aligned}</span>
+<p>Then the change in concentration it is independent of the reactant.</p>
+<section id="half-life-of-zero-order-reactions" class="level5">
+<h5 class="anchored" data-anchor-id="half-life-of-zero-order-reactions">Half-life of zero-order reactions</h5>
+<p>The half-life of this reaction is <span class="math inline">t = \frac{[\ce X]_0}{2k_r}</span>, in other words it is always the half of the initial concentration over the rate constant.</p>
+</section>
+</section>
+</section>
+<section id="other-reaction-orders" class="level3">
+<h3 class="anchored" data-anchor-id="other-reaction-orders">Other reaction orders</h3>
+<table class="table">
+<caption>Order reactions for the <span class="math inline">\ce{X -&gt; Y}</span> model</caption>
+<colgroup>
+<col style="width: 8%">
+<col style="width: 40%">
+<col style="width: 35%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Order</th>
+<th style="text-align: center;">Differential rate equation</th>
+<th style="text-align: center;">Concentration Equation</th>
+<th style="text-align: center;">Half-life</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math display">-\diff{\con X}{t}= k_r</span></td>
+<td style="text-align: center;"><span class="math display">\Delta \con X = -k_rt</span></td>
+<td style="text-align: center;"><span class="math display">\frac{\con X_0}{2k_r}</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span class="math display">-\diff{\con X}{t}= k_r\con X</span></td>
+<td style="text-align: center;"><span class="math display">\con X = \con X_0 e^{-k_rt}</span></td>
+<td style="text-align: center;"><span class="math display">\frac{\ln 2}{k_r}</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span class="math display">-\diff{\con X}{t}= k_r\con X^2</span></td>
+<td style="text-align: center;"><span class="math display">\frac{1}{\con X} - \frac{1}{\con X_0} = kt</span></td>
+<td style="text-align: center;"><span class="math display">\frac{1}{\con X_0 k_r}</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="other-models" class="level3">
+<h3 class="anchored" data-anchor-id="other-models">Other models</h3>
+<p>The simplest model for a reaction with two reactants is <span class="math display">
+\ce{X_0 + X_1 -&gt; Y }
+</span> the rate law of this reaction is <span class="math display">
+r = k_r [X_0]^{\alpha_0}[X_1]^{\alpha_1}
+</span> if <span class="math inline">\sum \alpha_i = 2</span> then it is posible to deduce the concentration equation, <span class="math display">
+\frac{1}{\con{X_1}_0 - \con{X_0}_0 } \ln{\frac{\con{X_1} \con{X_0}_0}{\con{X_0}\con{X_1}_0}} = k_rt
+</span></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To deduce the concentration equation just note that <span class="math display">
+\diff{z}{t} = k_r(\con{X_0}_0 -z)(\con{X_1}_0 -z)
+</span> where z is the amount of <span class="math inline">\con X_0</span> and <span class="math inline">\con X_1</span> consumed at time t.</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="determination-of-the-reaction-order" class="level1">
+<h1>Determination of the reaction order</h1>
+<section id="integration-method" class="level2">
+<h2 class="anchored" data-anchor-id="integration-method">Integration Method</h2>
+<p>Deduce the corresponding equation and adjust the data series by plotting concentration vs time. Raymond Chang affirms that this method is “not precise enough” to do more than distinguish the reaction order. This method is valid with various reactants.</p>
+</section>
+<section id="differential-method" class="level2">
+<h2 class="anchored" data-anchor-id="differential-method">Differential method</h2>
+<p>If a reaction is of a n<em>th</em>-order reaction then is proportional to the n<em>th</em> power of the concentration of the reactant. This method is only valid with one reactant.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Transformation for differential method
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+\begin{aligned}
+    \begin{split}
+        r = k_r \con{X}^n  &amp;\rightarrow \\
+        \log r &amp;= n\log \con X + \log k \\
+    \end{split}
+\end{aligned}
+</span></p>
+</div>
+</div>
+<p>it is better to take the initial velocities because the result is more accurate and easy to obtain.</p>
+</section>
+<section id="half-life-method" class="level2">
+<h2 class="anchored" data-anchor-id="half-life-method">Half-life method</h2>
+<p>Measure the half-life dependance with its initial concentration. The most easy case is the first order reaction because it is independent of the reactants.</p>
+</section>
+<section id="order-by-initial-rates-or-isolation-method" class="level2">
+<h2 class="anchored" data-anchor-id="order-by-initial-rates-or-isolation-method">Order by initial rates or isolation method</h2>
+<p>Imagine a reaction such as <a href="#eq-general-reaction">Equation&nbsp;1</a>. Then the velocity law is <span class="math display">
+V = \prod [X_i]^{\alpha_i}
+</span></p>
+<p>note that if we have two points in witch the concentration of one species varies but the other remains constan (in this case sup. that B is constan) we can determine the order of reaction of that reactant (let’s say <span class="math inline">\alpha_1</span>). Raymond Chang says initial rates avoids posible complications (side unwanted products, the concentrations of the reactant are well know).</p>
+<p><span class="math display">
+\frac{V_1}{V_2} = \left( \frac{\con{X_1}_{c=1}}{\con{X_1}_{c=2}} \right)^{\alpha_1}
+</span></p>
+</section>
+</section>
+<section id="molecularity-of-reaction" class="level1">
+<h1>Molecularity of Reaction</h1>
+<p>The proposed mechanism for a particularly reaction must account for the overall stoichiometry, the rate law and other known facts.</p>
+<p>Example 1</p>
+<table class="table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Thermal decomposition of hydrogen peroxide</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math display">\ce{2H2O2(aq) -&gt;[\ce{I^{-}}] 2H2O(l) + O2(g)}</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Rate</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math display">r = k \con{H2O2} \con{I^{-}}</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Steps</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math display"> \begin{aligned}\begin{split} \ce{H2O2 + I^{-} &amp;-&gt;[k1] H2O + IO^{-} }\\ \ce{H2O2 + IO^{-} &amp;-&gt;[k2] H2O + O2 + I^-}\\ \end{split}\end{aligned} </span></td>
+</tr>
+</tbody>
+</table>
+<p>Each of the steps described are called <em>elementary steps</em> and it is what actually happens at a molecular level. The most slow step is the first step because is what appears in the rate law. This step is called the <em>rate-determining</em> step.</p>
+<p>The ion <span class="math inline">\ce{IO^-}</span> is an intermediate species, because does not appears in the final equation and is formed at the begging and consumed at last. The ion <span class="math inline">\ce{I^-}</span> is a catalyst because is regenerated at the end of the reaction.</p>
+<p>To really understand a reaction you</p>
+<section id="unimolecular-reactions" class="level2">
+<h2 class="anchored" data-anchor-id="unimolecular-reactions">Unimolecular Reactions</h2>
+<p>They only involve one reactant molecule in the elementary step. For example for the</p>
+</section>
+</section>
+<section id="complex-reactions" class="level1">
+<h1>Complex Reactions</h1>
+<section id="reversible-reactions" class="level2">
+<h2 class="anchored" data-anchor-id="reversible-reactions">Reversible Reactions</h2>
+<p>Most reactions are reversible, then we must account for the reverse rate. Considere the following reaction <span class="math display">
+\ce{X &lt;--&gt;[k_r][k_{r^{-1}}] Y}
+</span> then the net rate of change is <span class="math display">
+\diff{[\ce A]}{t} = -k_r[A] +k_{r^{-1}}[B]
+</span></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

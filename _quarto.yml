@@ -5,6 +5,8 @@ project:
 website:
   title: "chiralcarbon"
   navbar:
+    background: dark
+    foreground: light
     left:
       - href: index.qmd
         text: Home
@@ -12,9 +14,11 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: simplex
     css: styles.css
     toc: true
+    html-math-method: katex
+    header-includes: <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/mhchem.min.js" integrity="sha384-RTN08a0AXIioPBcVosEqPUfKK+rPp+h1x/izR7xMkdMyuwkcZCWdxO+RSwIFtJXN"  crossorigin="anonymous"></script>
 
 
 

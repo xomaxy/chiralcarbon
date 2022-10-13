@@ -1,7 +1,12 @@
 ---
-title: "chiralcarbon"
+title: "My playground"
 ---
 
-This is a Quarto website.
+# What is this place?
+Here you can found my personal notes, the majority are notes on the curses taken in my University
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+# Links to my notes
+Here are the links to my notes
+
+## Physic chemistry
+[Link](notes/physichem/index.qmd)

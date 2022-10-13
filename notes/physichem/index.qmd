@@ -1,0 +1,5 @@
+---
+title: contents
+---
+
+[Notes on Chemical Kinetics](segundo_parcial.qmd)
