@@ -1,5 +1,6 @@
 ---
 title: "My playground"
+sidebar: false
 ---
 
 # What is this place?
@@ -8,5 +9,5 @@ Here you can found my personal notes, the majority are notes on the curses taken
 # Links to my notes
 Here are the links to my notes
 
-## Physic chemistry
+## Physical chemistry
 [Link](notes/physichem/index.qmd)

@@ -80,13 +80,16 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../notes/src/img/chiralCarbon.png" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">chiralcarbon</span>
     </a>
@@ -97,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../index.html" aria-current="page">Home</a>
+    <a class="nav-link" href="../../index.html">Home</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../about.html">About</a>
@@ -119,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
@@ -132,12 +135,27 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">My playground</a>
+  <a href="../../notes/physichem/chemical_kinetics.html" class="sidebar-item-text sidebar-link active">Chemical Kinetics</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../notes/physichem/electrolyte_solutions.html" class="sidebar-item-text sidebar-link">electrolyte_solutions.html</a>
+  <a href="../../notes/physichem/electrolyte_solutions.html" class="sidebar-item-text sidebar-link">Electrolyte Solutions</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Novel Materials</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../notes/development_of_materials/nanowires.html" class="sidebar-item-text sidebar-link">Nanowires</a>
   </div>
 </li>
       </ul>
@@ -199,11 +217,13 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<div class="hide">
 <p><span class="math display">
       \gdef\diff#1#2{\frac{d#1}{d#2}}
       \gdef\pdiff#1#2{\frac{\partial #1}{\partial #2}}
       \gdef\con#1{[\ce{#1}]}
 </span></p>
+</div>
 <section id="the-life-of-a-chemical-reaction" class="level1">
 <h1>The life of a chemical reaction</h1>
 <p>Matter usually is found in equilibrium, but before that, the system was in a state with some <em>potential</em> to produce change. This change may be fast or slow, in one step or many, with constant or variable <span class="math inline">P, T, V ...</span>.</p>

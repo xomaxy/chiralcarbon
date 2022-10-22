@@ -107,8 +107,134 @@
   {
     "objectID": "notes/physichem/index.html",
     "href": "notes/physichem/index.html",
-    "title": "contents",
+    "title": "Contents",
     "section": "",
-    "text": "Notes on Chemical Kinetics"
+    "text": "Electrolyte Solutions"
+  },
+  {
+    "objectID": "index.html#physical-chemistry",
+    "href": "index.html#physical-chemistry",
+    "title": "My playground",
+    "section": "Physical chemistry",
+    "text": "Physical chemistry\nLink"
+  },
+  {
+    "objectID": "notes/physichem/chemical_kinetics.html",
+    "href": "notes/physichem/chemical_kinetics.html",
+    "title": "Chemical Kinetics",
+    "section": "",
+    "text": "\\gdef\\diff#1#2{\\frac{d#1}{d#2}}\n      \\gdef\\pdiff#1#2{\\frac{\\partial #1}{\\partial #2}}\n      \\gdef\\con#1{[\\ce{#1}]}"
+  },
+  {
+    "objectID": "notes/physichem/chemical_kinetics.html#the-extend-of-reaction-optional",
+    "href": "notes/physichem/chemical_kinetics.html#the-extend-of-reaction-optional",
+    "title": "Chemical Kinetics",
+    "section": "The extend of reaction [Optional]",
+    "text": "The extend of reaction [Optional]\nTo avoid the existence of several rates connected with the reaction the extent of reaction \\xi is used\n\n\n\n\n\n\nDefinition of extend of reaction\n\n\n\n\ndn_{\\mathrm J} = \\nu_{\\mathrm J} d\\xi\n\nwhere dn_{\\mathrm J} is the change in amount of [\\mathrm J] and \\nu_\\mathrm J is the respective stoichiometric number of the species\n\n\nThe unique rate reaction v is defined as\n\n\n\n\n\n\nUnique rate of reaction\n\n\n\n\nv = \\frac{1}{V}\\frac{d \\xi}{dt} =\\frac{1}{\\nu_\\mathrm J}\\frac{1}{V}\\frac{d n_\\mathrm J}{dt}\n where V is the volume of the system.\n\n\nFor a homogeneous reaction in a constant-volume system the V can be taken inside the differential and therefore n_{\\mathrm J} / V = [\\mathrm J]. then the rate would be\n\n\n\n\n\n\nUnique rate for constant V and a homogeneous system\n\n\n\n\nr = \\frac{1}{\\nu_{\\mathrm J}} \\frac{d [\\mathrm J]}{dt}\n\n\n\nSimilarly for a heterogeneous reaction the constant surface area is used, and therefore the rate would be\n\n\n\n\n\n\nUnique rate for constant A and a heterogeneous system\n\n\n\n\nr = \\frac{1}{\\nu_{\\mathrm J}} \\diff{\\sigma}{t}, \\; \\; \\; \\sigma_{\\mathrm J} = n_{\\mathrm J} /A"
+  },
+  {
+    "objectID": "notes/physichem/chemical_kinetics.html#reaction-law",
+    "href": "notes/physichem/chemical_kinetics.html#reaction-law",
+    "title": "Chemical Kinetics",
+    "section": "Reaction law",
+    "text": "Reaction law\nAs the definition of r suggest, the rate may depend of the reactants. If we suppose that all reactants react to form a product and the product does not change in the course of the reaction, the rate would be in function of the reactant concentrations. \nr = f([\\ce X_0], [\\ce X_1], \\cdots)\n The dependance of the concentration can be changed with other state function like the pressure (p_{\\mathrm{J}} = RT[J]). \nr = f(p_0, p_1, \\cdots)\n Often the concentration of the reactants is proportional to the rate. (Although it must be found experimentally). \nr  \\propto \\prod [\\ce X_i]^{\\alpha_i}\n If that is the case, the reaction order is defined as the sum of all \\alpha_i, and the above equation is know as the rate law with k_r as the rate constant. The k_r constant it depends of temperature and is independent of the concentration.\n\nReaction order for the simplest case\nThe simplest case is when there is just one [\\ce X] with \\alpha_i being a integer.\n\nZero-Order reaction\nThis happens if the rate is \nr = k_r  [\\ce X]^{\\alpha} \\;\\; \\text{with} \\;\\;  \\alpha = 0\n Therefore r = k_r and\n\\begin{aligned}\n        -\\diff{[\\ce X]}{t} = k_r &\\rightarrow \\\\\n            d [\\ce X] &= -k_r d t \\\\\n            \\int_{[\\ce X]_0}^{[\\ce X]} d [\\ce X] &= -\\int_0^t k_r d t \\\\\n            \\Delta [\\ce X] &= -k_r t\\\\\n\n\\end{aligned}\nThen the change in concentration it is independent of the reactant.\n\nHalf-life of zero-order reactions\nThe half-life of this reaction is t = \\frac{[\\ce X]_0}{2k_r}, in other words it is always the half of the initial concentration over the rate constant.\n\n\n\n\nOther reaction orders\n\nOrder reactions for the \\ce{X -> Y} model\n\n\n\n\n\n\n\n\nOrder\nDifferential rate equation\nConcentration Equation\nHalf-life\n\n\n\n\n0\n-\\diff{\\con X}{t}= k_r\n\\Delta \\con X = -k_rt\n\\frac{\\con X_0}{2k_r}\n\n\n1\n-\\diff{\\con X}{t}= k_r\\con X\n\\con X = \\con X_0 e^{-k_rt}\n\\frac{\\ln 2}{k_r}\n\n\n2\n-\\diff{\\con X}{t}= k_r\\con X^2\n\\frac{1}{\\con X} - \\frac{1}{\\con X_0} = kt\n\\frac{1}{\\con X_0 k_r}\n\n\n\n\n\nOther models\nThe simplest model for a reaction with two reactants is \n\\ce{X_0 + X_1 -> Y }\n the rate law of this reaction is \nr = k_r [X_0]^{\\alpha_0}[X_1]^{\\alpha_1}\n if \\sum \\alpha_i = 2 then it is posible to deduce the concentration equation, \n\\frac{1}{\\con{X_1}_0 - \\con{X_0}_0 } \\ln{\\frac{\\con{X_1} \\con{X_0}_0}{\\con{X_0}\\con{X_1}_0}} = k_rt\n\n\n\n\n\n\n\nTip\n\n\n\nTo deduce the concentration equation just note that \n\\diff{z}{t} = k_r(\\con{X_0}_0 -z)(\\con{X_1}_0 -z)\n where z is the amount of \\con X_0 and \\con X_1 consumed at time t."
+  },
+  {
+    "objectID": "notes/physichem/chemical_kinetics.html#integration-method",
+    "href": "notes/physichem/chemical_kinetics.html#integration-method",
+    "title": "Chemical Kinetics",
+    "section": "Integration Method",
+    "text": "Integration Method\nDeduce the corresponding equation and adjust the data series by plotting concentration vs time. Raymond Chang affirms that this method is “not precise enough” to do more than distinguish the reaction order. This method is valid with various reactants."
+  },
+  {
+    "objectID": "notes/physichem/chemical_kinetics.html#differential-method",
+    "href": "notes/physichem/chemical_kinetics.html#differential-method",
+    "title": "Chemical Kinetics",
+    "section": "Differential method",
+    "text": "Differential method\nIf a reaction is of a nth-order reaction then is proportional to the nth power of the concentration of the reactant. This method is only valid with one reactant.\n\n\n\n\n\n\nTransformation for differential method\n\n\n\n\n\\begin{aligned}\n    \\begin{split}\n        r = k_r \\con{X}^n  &\\rightarrow \\\\\n        \\log r &= n\\log \\con X + \\log k \\\\\n    \\end{split}\n\\end{aligned}\n\n\n\nit is better to take the initial velocities because the result is more accurate and easy to obtain."
+  },
+  {
+    "objectID": "notes/physichem/chemical_kinetics.html#half-life-method",
+    "href": "notes/physichem/chemical_kinetics.html#half-life-method",
+    "title": "Chemical Kinetics",
+    "section": "Half-life method",
+    "text": "Half-life method\nMeasure the half-life dependance with its initial concentration. The most easy case is the first order reaction because it is independent of the reactants."
+  },
+  {
+    "objectID": "notes/physichem/chemical_kinetics.html#order-by-initial-rates-or-isolation-method",
+    "href": "notes/physichem/chemical_kinetics.html#order-by-initial-rates-or-isolation-method",
+    "title": "Chemical Kinetics",
+    "section": "Order by initial rates or isolation method",
+    "text": "Order by initial rates or isolation method\nImagine a reaction such as Equation 1. Then the velocity law is \nV = \\prod [X_i]^{\\alpha_i}\n\nnote that if we have two points in witch the concentration of one species varies but the other remains constan (in this case sup. that B is constan) we can determine the order of reaction of that reactant (let’s say \\alpha_1). Raymond Chang says initial rates avoids posible complications (side unwanted products, the concentrations of the reactant are well know).\n\n\\frac{V_1}{V_2} = \\left( \\frac{\\con{X_1}_{c=1}}{\\con{X_1}_{c=2}} \\right)^{\\alpha_1}"
+  },
+  {
+    "objectID": "notes/physichem/chemical_kinetics.html#unimolecular-reactions",
+    "href": "notes/physichem/chemical_kinetics.html#unimolecular-reactions",
+    "title": "Chemical Kinetics",
+    "section": "Unimolecular Reactions",
+    "text": "Unimolecular Reactions\nThey only involve one reactant molecule in the elementary step. For example for the"
+  },
+  {
+    "objectID": "notes/physichem/chemical_kinetics.html#reversible-reactions",
+    "href": "notes/physichem/chemical_kinetics.html#reversible-reactions",
+    "title": "Chemical Kinetics",
+    "section": "Reversible Reactions",
+    "text": "Reversible Reactions\nMost reactions are reversible, then we must account for the reverse rate. Considere the following reaction \n\\ce{X <-->[k_r][k_{r^{-1}}] Y}\n then the net rate of change is \n\\diff{[\\ce A]}{t} = -k_r[A] +k_{r^{-1}}[B]"
+  },
+  {
+    "objectID": "notes/physics/waves.html",
+    "href": "notes/physics/waves.html",
+    "title": "waves",
+    "section": "",
+    "text": "Para un sistema con masa se tiene que\n\\frac{A^{2} k \\cos^{2}{\\left(t ω + ϕ \\right)}}{2} + \\frac{A^{2} m ω^{2} \\sin^{2}{\\left(t ω + ϕ \\right)}}{2}"
+  },
+  {
+    "objectID": "notes/development_of_materials/nanowires.html",
+    "href": "notes/development_of_materials/nanowires.html",
+    "title": "Nanowires",
+    "section": "",
+    "text": "Commodo aute ullamco dolor mollit aliquip laborum aliquip laboris laborum Lorem non eiusmod. Et culpa eiusmod eiusmod labore culpa est nisi elit adipisicing magna ex laboris ullamco occaecat. Commodo tempor irure consequat ex labore."
+  },
+  {
+    "objectID": "notes/physics/waves.html#segundo-problema",
+    "href": "notes/physics/waves.html#segundo-problema",
+    "title": "waves",
+    "section": "Segundo problema",
+    "text": "Segundo problema\n#ley de stefan\n\n@syms σ, T, T₀, ε, A\n\npower = σ*ε*A*T^4\n\nnet_power = σ*ε*A*(T^4 - T₀^4)\n\nprintformula(power)\nprint(L\"=\")\nprintformula(power.subs(ε,1).subs(σ, 5.6e-8).subs(A,1).subs(T, 3000))\nprintformula(power.subs([(ε,1)]))\nA T^{4} ε σ =4536000.0 A T^{4} σ"
+  },
+  {
+    "objectID": "notes/physics/waves.html#tercer-problema",
+    "href": "notes/physics/waves.html#tercer-problema",
+    "title": "waves",
+    "section": "tercer problema",
+    "text": "tercer problema"
+  },
+  {
+    "objectID": "notes/physics/waves.html#sexto-problema",
+    "href": "notes/physics/waves.html#sexto-problema",
+    "title": "waves",
+    "section": "sexto problema",
+    "text": "sexto problema\nPlanck scales"
+  },
+  {
+    "objectID": "notes/physics/waves.html#rayleight-jeans",
+    "href": "notes/physics/waves.html#rayleight-jeans",
+    "title": "waves",
+    "section": "Rayleight-Jeans",
+    "text": "Rayleight-Jeans\nprint(L\"n*\\frac{\\lambda}{2}=L\")\nn*\\frac{\\lambda}{2}=L"
+  },
+  {
+    "objectID": "notes/physics/waves.html#test-with-symbolics",
+    "href": "notes/physics/waves.html#test-with-symbolics",
+    "title": "waves",
+    "section": "Test with symbolics",
+    "text": "Test with symbolics\nusing Symbolics, Latexify\n\n\n@variables x, y, z\nmyexp = x^y + z\n\nvals = Dict([y => measurement(\"2.9(9)\"), x => measurement(\"23(4)\")])\n\nmyexp_eval = substitute(myexp, vals)\nprint(latexify(myexp_eval))\n\\begin{equation}\n8900.0 \\pm 25000.0 + z\n\\end{equation}"
+  },
+  {
+    "objectID": "notes/macros/math.html",
+    "href": "notes/macros/math.html",
+    "title": "chiralcarbon",
+    "section": "",
+    "text": "\\gdef\\diff#1#2{\\frac{d#1}{d#2}}\n      \\gdef\\pdiff#1#2{\\frac{\\partial #1}{\\partial #2}}\n      \\gdef\\con#1{[\\ce{#1}]}"
   }
 ]

@@ -5,12 +5,21 @@ project:
 website:
   title: "chiralcarbon"
   navbar:
-    background: dark
-    foreground: light
+    logo: notes/src/img/chiralCarbon.png
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+  sidebar: 
+    style: floating
+    contents: 
+      - section: "Physical chemistry"
+        contents: 
+          - notes/physichem/chemical_kinetics.qmd
+          - notes/physichem/electrolyte_solutions.qmd
+      - section: "Novel Materials"
+        contents: 
+          - notes/development_of_materials/nanowires.qmd
 
 format:
   html:
