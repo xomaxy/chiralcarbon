@@ -11,3 +11,6 @@ Here are the links to my notes
 
 ## Physical chemistry
 [Link](notes/physichem/index.qmd)
+
+
+<iframe style="width: 500px; height: 300px;" frameborder="0" src="https://embed.molview.org/v1/?mode=balls&cid=2519"></iframe>

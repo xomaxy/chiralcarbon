@@ -1,6 +1,8 @@
 ---
 title: "About"
 sidebar: false
+navbar:
+    logo: notes/src/img/chiralCarbon.png
 ---
 
 About this site

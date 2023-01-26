@@ -9,7 +9,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - notebooks.qmd
   sidebar: 
     style: floating
     contents: 
@@ -17,6 +17,7 @@ website:
         contents: 
           - notes/physichem/chemical_kinetics.qmd
           - notes/physichem/electrolyte_solutions.qmd
+          - notes/meta_chiral/howisdone.qmd
       - section: "Novel Materials"
         contents: 
           - notes/development_of_materials/nanowires.qmd

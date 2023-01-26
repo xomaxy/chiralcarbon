@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>chiralcarbon - Contents</title>
+<title>chiralcarbon - Modelo microscópico de un gas ideal.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/mhchem.min.js" integrity="sha384-RTN08a0AXIioPBcVosEqPUfKK+rPp+h1x/izR7xMkdMyuwkcZCWdxO+RSwIFtJXN" crossorigin="anonymous"></script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -98,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Contents</h1>
+      <h1 class="quarto-secondary-nav-title">Modelo microscópico de un gas ideal.</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -156,14 +172,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#presión-promedio-para-una-partícula" id="toc-presión-promedio-para-una-partícula" class="nav-link active" data-scroll-target="#presión-promedio-para-una-partícula">Presión promedio para una partícula</a></li>
+  <li><a href="#presión-promedio-para-n-partículas" id="toc-presión-promedio-para-n-partículas" class="nav-link" data-scroll-target="#presión-promedio-para-n-partículas">Presión promedio para <span class="math inline">N</span> partículas</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Contents</h1>
+<h1 class="title d-none d-lg-block">Modelo microscópico de un gas ideal.</h1>
 </div>
 
 
@@ -178,10 +201,52 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><a href="../../notes/physichem/chemical_kinetics.html">Chemical Kinetics</a></p>
-<p><a href="../../notes/physichem/electrolyte_solutions.html">Electrolyte Solutions</a></p>
+<section id="presión-promedio-para-una-partícula" class="level2">
+<h2 class="anchored" data-anchor-id="presión-promedio-para-una-partícula">Presión promedio para una partícula</h2>
+<p>Deducir la relación entre la temperatura y la energía no es fácil. Sin embargo se pueden hacer uso de construcciones simples que facilitan la compresión del comportamiento de los gases ideales.</p>
+<div id="fig-model" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="img/preassure.gif" class="img-fluid figure-img" style="width:8cm"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Simulación</figcaption><p></p>
+</figure>
+</div>
+<p>Supóngase que se tiene un contenedor con una pared movible que contiene una única molécula con velocidad constante <span class="math inline">\bm{v}</span> como se observa en la <a href="#fig-model">Figure&nbsp;1</a>. Suponiendo que no hay fricción y que todas las colisiones son elásticas, la presión promedio aplicada en la pared movible sería <span id="eq-meanpresion"><span class="math display">
+\begin{aligned}
+\overline{P} &amp;= \frac{\overline{F}_{\text{y, en el pistón}}}{A} \\ \\ &amp;=  \frac{-\overline{F}_{\text{y, en la molécula}}}{A}
+\\ \\ &amp;= -\frac{m\overline{\large{\left (\frac{\Delta v_y}{\Delta t} \right )}}}{A}
+\end{aligned}
+\tag{1}</span></span> Para poder calcular la aceleración promedio basta con calcular la velocidad promedio sobre un tiempo lo suficientemente largo. La clave para escoger el tiempo es incluir los momentos de las aceleraciones provocadas solo por el pistón y no por la pared opuesta. Si empezamos a contar el tiempo desde que la partícula parte de la base de la caja golpea al pistón y luego regresa entonces se cumpliría lo anterior. Dicho tiempo sería: <span id="eq-tiempo"><span class="math display">
+\Delta t = 2L / v_y
+\tag{2}</span></span> La velocidad sería <span id="eq-vel"><span class="math display">
+\Delta v_y = (v_{yf}) - (v_{yi}) = -v_y - v_y = -2v_y
+\tag{3}</span></span> sustituyendo los resultados de <a href="#eq-tiempo">Equation&nbsp;2</a> y <a href="#eq-vel">Equation&nbsp;3</a> en la ecuación <a href="#eq-meanpresion">Equation&nbsp;1</a> se obtiene <span class="math display">
+\overline{P} =
+-\frac{m \left( \Large{\frac{-2v_y}{2L/v_y}} \right )  }{A} = \frac{m v_y^2}{V}
+</span></p>
+</section>
+<section id="presión-promedio-para-n-partículas" class="level2">
+<h2 class="anchored" data-anchor-id="presión-promedio-para-n-partículas">Presión promedio para <span class="math inline">N</span> partículas</h2>
+<p>Si existieran <span class="math inline">N</span> moléculas, la presión promedio estaría dada por la contribución de cada molécula esto es <span class="math display">
+\overline{P}V = \sum^N_i{m_i v_{i,y}^2} = m\sum^N_i{v_{i,y}^2}
+</span> Si agregamos moléculas suficientes la presión se vuelve prácticamente continua. También la suma del cuadrado de las velocidades seria igual a <span class="math inline">N</span> veces el promedio del cuadrado de las velocidades <span class="math display">
+PV=Nm \overline{v_y^2}
+</span> Invocando la ley de gases ideales se puede obtener que <span class="math display">
+\overline{\frac{1}{2}mv_y^2} = \frac{1}{2}kT
+</span> El mismo resultado se puede obtener para las demás dimensiones <span class="math inline">y,z</span> por lo que finalmente se encuentra que la energía cinética de translación promedio es (utilizando el hecho de que el promedio de una suma es la suma de los promedios) <span class="math display">
+\overline{K}_{\text{trans}}=\overline{ \frac{1}{2} mv^2} = \frac{3}{2}kT
+</span> Nótese que, con lo anterior, no es posible encontrar la velocidad promedio de las moléculas. Unicamente es posible encontrar el promedio del cuadrado de las velocidades, <span id="eq-enegtrans"><span class="math display">
+v_{rms} \equiv \sqrt{\overline{\bm{v}^2}} = \sqrt{\frac{3kT}{m}}
+\tag{4}</span></span> Esta deducción falla si:</p>
+<ul>
+<li>Las colisiones son inelásticas</li>
+<li>Las moléculas ejercen fuerzas entre ellas</li>
+<li>La ley de los gases ideales falla</li>
+<li>Las distancias promedio viajadas entre las moléculas son menores al tamaño de las moléculas</li>
+</ul>
+<p>Si sucede el último caso, se ha encontrado que el resultado de <a href="#eq-enegtrans">Equation&nbsp;4</a> aún se mantiene.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

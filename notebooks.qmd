@@ -1,0 +1,5 @@
+---
+title: Notes
+---
+# Notas de fisicoquímica
+[Link](notes/physichem/basic_thermo.qmd)
